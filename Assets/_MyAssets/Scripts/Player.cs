@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         // Position initiale du joueur
-        transform.position = new Vector3(-12f, 0.51f, -12f);
+        transform.position = new Vector3(-30f, 0.51f, -30f);
     }
 
     private void Update()
