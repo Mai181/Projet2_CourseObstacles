@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
         float positionX = Input.GetAxis("Horizontal");
         float positionZ = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(positionX, 0f, positionZ);
+        direction.Normalize();
         transform.Translate(direction * Time.deltaTime * _vitesse);
     }
 }
