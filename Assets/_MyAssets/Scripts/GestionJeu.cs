@@ -26,7 +26,11 @@ public class GestionJeu : MonoBehaviour
     public void AugmenterPointage()
     {
         _pointage++;
-        Debug.Log("Nombre d'accrochages : " + _pointage);
+    }
+
+    public int GetPointage()
+    {
+        return _pointage;
     }
 
 }
