@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.Rendering;
 
 public class GestionJeu : MonoBehaviour
 {
     // ***** Attributs *****
 
+    [SerializeField] private TMP_Text _txtTemps = default; 
     private int _pointage = 0;  // Attribut qui conserve le nombre d'accrochages
     private int _accrochageNiveau1 = 0;  // Atribut qui conserve le nombre d'accrochage pour le niveau 1
     private float _tempsNiveau1 = 0.0f;  // Attribut qui conserve le temps pour le niveau 1
@@ -30,6 +33,13 @@ public class GestionJeu : MonoBehaviour
     private void Start()
     {
         InstructionsDepart();  // Affiche les instructions de départ
+    }
+
+    private void Update()
+    {
+        float temps = Time.time;
+        string txtTemps = temps.ToString("f2");
+        _txtTemps.text = "Temps : " + txtTemps;
     }
 
     /*
