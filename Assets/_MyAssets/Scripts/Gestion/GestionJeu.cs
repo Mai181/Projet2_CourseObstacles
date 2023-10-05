@@ -13,6 +13,11 @@ public class GestionJeu : MonoBehaviour
     private int _accrochageNiveau1 = 0;  // Atribut qui conserve le nombre d'accrochage pour le niveau 1
     private float _tempsNiveau1 = 0.0f;  // Attribut qui conserve le temps pour le niveau 1
 
+    private float _tempsDepart = 0.0f;
+    public float TempsDepart => _tempsDepart;
+
+    private float _tempsFinal = 0.0f;
+
     // ***** Méthodes privées *****
     private void Awake()
     {
@@ -32,14 +37,8 @@ public class GestionJeu : MonoBehaviour
 
     private void Start()
     {
+        _tempsDepart = Time.time;
         InstructionsDepart();  // Affiche les instructions de départ
-    }
-
-    private void Update()
-    {
-        float temps = Time.time;
-        string txtTemps = temps.ToString("f2");
-        _txtTemps.text = "Temps : " + txtTemps;
     }
 
     /*
@@ -61,6 +60,8 @@ public class GestionJeu : MonoBehaviour
     public void AugmenterPointage()
     {
         _pointage++;
+        UIManager uiManager = FindObjectOfType<UIManager>();
+        uiManager.ChangerPointage(_pointage);
     }
 
     // Accesseur qui retourne la valeur de l'attribut pointage
