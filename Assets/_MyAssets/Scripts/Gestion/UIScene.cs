@@ -9,11 +9,14 @@ public class UIScene : MonoBehaviour
     {
         int noScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(noScene + 1);
+        if (noScene == 3)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
-
     public void Quitter()
     {
         Application.Quit();
     }
-
+    
 }
